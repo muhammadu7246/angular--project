@@ -1,0 +1,249 @@
+<body
+    class="page-template-default page page-id-41 theme-shopwise mmm mega_main_menu-2-2-0 woocommerce-cart woocommerce-page woocommerce-no-js woo-variation-swatches wvs-behavior-blur wvs-theme-shopwise wvs-mobile wvs-show-label wvs-tooltip tinvwl-theme-style elementor-default elementor-kit-707">
+
+    <div class="main_content">
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="woocommerce">
+                            <div class="woocommerce-notices-wrapper"></div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="table-responsive shop_cart_table">
+
+                                        <form class="woocommerce-cart-form"
+                                            action="https://klbtheme.com/shopwise/furniture/cart/" method="post">
+
+                                            <table
+                                                class="table shop_table shop_table_responsive cart woocommerce-cart-form__contents"
+                                                cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="product-thumbnail">&nbsp;</th>
+                                                        <th class="product-name">Product</th>
+                                                        <th class="product-price">Price</th>
+                                                        <th class="product-quantity">Quantity</th>
+                                                        <th class="product-subtotal">Subtotal</th>
+                                                        <th class="product-remove">{{cartItems.length}} </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if (cartItems.length ==0) {
+                                                        <tr>
+                                                            <td colspan="4">
+                                                                <p>No Product Added Yet</p>
+                                                            </td>
+                                                        </tr>
+                                                    } @else {
+                                                        @for (item of cartItems; track $index) {
+                                                            <tr class="woocommerce-cart-form__cart-item cart_item">
+            
+                                                                <td class="product-thumbnail">
+                                                                    <a
+                                                                        href="https://klbtheme.com/shopwise/furniture/product/randomised-humour-words/"><img
+                                                                            width="90" height="90"
+                                                                            src="https://klbtheme.com/shopwise/furniture/wp-content/uploads/2020/04/furniture_img6-90x90.jpg"
+                                                                            class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                                                                            alt="" decoding="async" loading="lazy"
+                                                                            srcset="https://klbtheme.com/shopwise/furniture/wp-content/uploads/2020/04/furniture_img6-90x90.jpg 90w, https://klbtheme.com/shopwise/furniture/wp-content/uploads/2020/04/furniture_img6-150x150.jpg 150w, https://klbtheme.com/shopwise/furniture/wp-content/uploads/2020/04/furniture_img6-450x450.jpg 450w"
+                                                                            sizes="(max-width: 90px) 100vw, 90px" /></a>
+                                                                </td>
+            
+                                                                <td class="product-name" data-title="Product">
+                                                                    <a
+                                                                        href="https://klbtheme.com/shopwise/furniture/product/randomised-humour-words/">Randomised
+                                                                        Humour Words</a>
+                                                                </td>
+            
+                                                                <td class="product-price" data-title="Price">
+                                                                    <span class="woocommerce-Price-amount amount"><bdi><span
+                                                                                class="woocommerce-Price-currencySymbol">&pound;</span>65.00</bdi>
+                                                                    </span>
+                                                                </td>
+            
+                                                                <td class="product-quantity" data-title="Quantity">
+            
+            
+                                                                    <div class="quantity">
+                                                                        <label class="screen-reader-text"
+                                                                            for="quantity_67518b587dff8">Randomised Humour Words
+                                                                            quantity</label>
+                                                                        <input type="button" value="-" class="minus">
+                                                                        <input type="text" id="quantity_67518b587dff8"
+                                                                            class="input-text qty text" step="1" min="0" max=""
+                                                                            name="cart[d2ddea18f00665ce8623e36bd4e3c7c5][qty]"
+                                                                            value="6" title="Qty" size="4" placeholder=""
+                                                                            inputmode="numeric" />
+                                                                        <input type="button" value="+" class="plus">
+                                                                    </div>
+                                                                </td>
+            
+                                                                <td class="product-subtotal" data-title="Subtotal">
+                                                                    <span class="woocommerce-Price-amount amount"><bdi><span
+                                                                                class="woocommerce-Price-currencySymbol">&pound;</span>390.00</bdi>
+                                                                    </span>
+                                                                </td>
+            
+                                                                <td class="product-remove">
+                                                                    <a href="https://klbtheme.com/shopwise/furniture/cart/?remove_item=d2ddea18f00665ce8623e36bd4e3c7c5&#038;_wpnonce=8da765fff3"
+                                                                        class="remove" aria-label="Remove this item"
+                                                                        data-product_id="73" data-product_sku="KE45VGRT"><i
+                                                                            class="ti-close"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                            <li>
+                                                            <a href="#" class="item_remove"><i class="ion-close"></i></a>
+                                                            <a href="#"><img src="{{item.imageUrl}}"
+                                                                    alt="cart_thumb1">{{item.productName}}</a>
+                                                            <span class="cart_quantity"><span class="cart_amount"> <span
+                                                                        class="price_symbole">$</span></span>${{getDiscountedPrice(item)}}</span>
+                                                            <a (click)="removeProduct($index)" data-toggle="modal"
+                                                                data-title="Delete your product ?">
+                                                                <i class="fa fa-trash text-danger"></i>
+                                                            </a>
+                                                        </li>
+                                                        <!-- <tr>
+                                                            <td>
+                                                                <div class="rounded"
+                                                                    style="background-image: url({{item.imageUrl}}); width: 60px; height: 60px; background-size: cover;">
+                                                                </div>
+                                                            </td>
+                                                            <td class="align-middle text-left">{{item.productName}} | </td>
+                                                            <td class="align-middle text-right">${{getDiscountedPrice(item)}} | </td>
+                                                            <td class="align-middle text-center">
+                                                            </td>
+                                                        </tr> -->
+                                                        }
+                                                        }
+                    
+                    
+                                                        @if (cartItems.length !==0) {
+                                                        <tr>
+                                                            <td colspan="3" class="align-middle text-right">Quantity</td>
+                                                            <td class="align-middle text-right">{{cartItems.length}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="3" class="align-middle text-right">Total</td>
+                                                            <td class="align-middle text-right">{{totalAmount}}</td>
+                                                        </tr>
+                                                        }
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="medium_divider"></div>
+                                    <div class="divider center_icon"><i class="ti-shopping-cart-full"></i></div>
+                                    <div class="medium_divider"></div>
+                                </div>
+                            </div>
+
+                            <div class="cart-collaterals">
+                                <div class="cart_totals ">
+
+
+                                    <div class="border p-3 p-md-4">
+                                        <div class="heading_s1 mb-3">
+                                            <h6>Cart totals</h6>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table cellspacing="0" class="table shop_table shop_table_responsive">
+
+                                                <tr class="cart-subtotal">
+                                                    <th>Subtotal</th>
+                                                    <td data-title="Subtotal"><span
+                                                            class="woocommerce-Price-amount amount"><bdi><span
+                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>390.00</bdi>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+
+
+
+
+
+
+                                                <tr class="order-total">
+                                                    <th>Total</th>
+                                                    <td data-title="Total"><strong><span
+                                                                class="woocommerce-Price-amount amount"><bdi><span
+                                                                        class="woocommerce-Price-currencySymbol">&pound;</span>390.00</bdi></span></strong>
+                                                    </td>
+                                                </tr>
+
+
+                                            </table>
+                                        </div>
+
+                                        <div class="wc-proceed-to-checkout">
+
+                                            <a href="https://klbtheme.com/shopwise/furniture/checkout/"
+                                                class="btn btn-fill-out checkout-button button alt wc-forward">
+                                                Proceed to checkout</a>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="section bg_default small_pt small_pb">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="heading_s1 mb-md-0 heading_light">
+                            <h3>Subscribe Our Newsletter</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="newsletter_form">
+                            <script>
+                                (function () {
+                                    window.mc4wp = window.mc4wp || {
+                                        listeners: [],
+                                        forms: {
+                                            on: function (evt, cb) {
+                                                window.mc4wp.listeners.push({
+                                                    event: evt,
+                                                    callback: cb
+                                                });
+                                            }
+                                        }
+                                    }
+                                })();
+                            </script>
+                            <!-- Mailchimp for WordPress v4.9.4 - https://wordpress.org/plugins/mailchimp-for-wp/ -->
+                            <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-111" method="post" data-id="111"
+                                data-name="Shopwise">
+                                <div class="mc4wp-form-fields"><input type="email" class="form-control rounded-0"
+                                        name="EMAIL" placeholder="Your email address" required />
+                                    <input type="submit" class="btn btn-dark rounded-0" value="Sign up" />
+                                </div><label style="display: none !important;">Leave this field empty if you're human:
+                                    <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1"
+                                        autocomplete="off" /></label><input type="hidden" name="_mc4wp_timestamp"
+                                    value="1733397336" /><input type="hidden" name="_mc4wp_form_id" value="111" /><input
+                                    type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1" />
+                                <div class="mc4wp-response"></div>
+                            </form>
+                            <!-- / Mailchimp for WordPress Plugin -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>

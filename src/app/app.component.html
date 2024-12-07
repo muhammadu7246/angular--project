@@ -1,0 +1,126 @@
+<!-- START HEADER -->
+<header class="header_wrap fixed-top header_with_topbar">
+
+    <div class="bottom_header dark_skin main_menu_uppercase">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="index.html">
+                    <img class="logo_light" src="../assets/images/logo_light.png" alt="logo" />
+                    <img class="logo_dark" src="../assets/images/logo_dark.png" alt="logo" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-expanded="false">
+                    <span class="ion-android-menu"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+
+                </div>
+                <ul class="navbar-nav attr-nav align-items-center">
+                    <li><a href="javascript:;" class="nav-link search_trigger"><i class="linearicons-magnifier"></i></a>
+                        <div class="search_wrap">
+                            <span class="close-search"><i class="ion-ios-close-empty"></i></span>
+                            <form>
+                                <input type="text" placeholder="Search" class="form-control" id="search_input">
+                                <button type="submit" class="search_icon"><i class="ion-ios-search-strong"></i></button>
+                            </form>
+                        </div>
+                        <div class="search_overlay"></div>
+                        <div class="search_overlay"></div>
+                    </li>
+                    <li><a routerLink="home">home</a></li>
+                    <li><a routerLink="about">About</a></li>
+                    <li><a routerLink="Contect">Contect</a></li>
+                    <li><a routerLink="cart">cart</a></li>
+                    <router-outlet></router-outlet>                    
+                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#"
+                            data-bs-toggle="dropdown"><i class="linearicons-cart"></i><span
+                                class="cart_count">{{cartItems.length}}</span></a>
+                        <div class="cart_box dropdown-menu dropdown-menu-right">
+                            <ul class="cart_list">
+                                <tbody>
+                                    @if (cartItems.length ==0) {
+                                    <tr>
+                                        <td colspan="4">
+                                            <p>No Product Added Yet</p>
+                                        </td>
+                                    </tr>
+                                    } @else {
+                                    @for (item of cartItems; track $index) {
+                                    <li>
+                                        <a href="#" class="item_remove"><i class="ion-close"></i></a>
+                                        <a href="#"><img src="{{item.imageUrl}}"
+                                                alt="cart_thumb1">{{item.productName}}</a>
+                                        <span class="cart_quantity"><span class="cart_amount"> <span
+                                                    class="price_symbole">$</span></span>${{getDiscountedPrice(item)}}</span>
+                                        <a (click)="removeProduct($index)" data-toggle="modal"
+                                            data-title="Delete your product ?">
+                                            <i class="fa fa-trash text-danger"></i>
+                                        </a>
+                                    </li>
+                                    <!-- <tr>
+                                        <td>
+                                            <div class="rounded"
+                                                style="background-image: url({{item.imageUrl}}); width: 60px; height: 60px; background-size: cover;">
+                                            </div>
+                                        </td>
+                                        <td class="align-middle text-left">{{item.productName}} | </td>
+                                        <td class="align-middle text-right">${{getDiscountedPrice(item)}} | </td>
+                                        <td class="align-middle text-center">
+                                        </td>
+                                    </tr> -->
+                                    }
+                                    }
+
+
+                                    @if (cartItems.length !==0) {
+                                    <tr>
+                                        <td colspan="3" class="align-middle text-right">Quantity</td>
+                                        <td class="align-middle text-right">{{cartItems.length}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" class="align-middle text-right">Total</td>
+                                        <td class="align-middle text-right">{{totalAmount}}</td>
+                                    </tr>
+                                    }
+
+                                </tbody>
+
+                            </ul>
+                            <div class="cart_footer">
+                                @if (cartItems.length !==0) {
+                                <!-- <tr>
+                                        <td colspan="3" class="align-middle text-right">Quantity</td>
+                                        <td class="align-middle text-right">{{cartItems.length}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" class="align-middle text-right">Total</td>
+                                        <td class="align-middle text-right">{{totalAmount}}</td>
+                                    </tr> -->
+                                <p class="cart_total"><strong>Product:</strong>
+                                    <span class="cart_price">
+                                        <span class="price_symbole">
+
+                                        </span>
+                                    </span>
+                                    {{cartItems.length}}
+                                </p>
+                                <p class="cart_total"><strong>Total:</strong>
+                                    <span class="cart_price">
+                                        <span class="price_symbole">
+                                            $
+                                        </span>
+                                    </span>
+                                    {{totalAmount}}
+                                </p>
+                                }
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- END HEADER -->
+<router-outlet></router-outlet>
